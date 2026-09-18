@@ -9,6 +9,7 @@
 	import { formatRelative } from '#lib/format.ts';
 	import { displayName } from '#lib/course.ts';
 	import CourseDot from '#lib/components/course-dot.svelte';
+	import { withAuthUser } from '#lib/link-authuser.svelte.ts';
 	import ExternalLinkIcon from '@lucide/svelte/icons/external-link';
 
 	const row = useLiveQuery({
@@ -40,8 +41,11 @@
 			</p>
 		</div>
 		{#if m.alternateLink}
-			<Button variant="outline" href={m.alternateLink} target="_blank" rel="noreferrer"
-				>Open in Classroom <ExternalLinkIcon data-icon="inline-end" /></Button
+			<Button
+				variant="outline"
+				href={withAuthUser(m.alternateLink)}
+				target="_blank"
+				rel="noreferrer">Open in Classroom <ExternalLinkIcon data-icon="inline-end" /></Button
 			>
 		{/if}
 	</div>

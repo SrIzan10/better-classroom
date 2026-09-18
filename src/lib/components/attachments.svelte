@@ -1,6 +1,7 @@
 <script lang="ts">
 	import * as Item from '#lib/components/ui/item/index.js';
 	import { avatarUrl } from '#lib/api.ts';
+	import { withAuthUser } from '#lib/link-authuser.svelte.ts';
 	import type { Attachment } from '#lib/shared/types.ts';
 	import FileTextIcon from '@lucide/svelte/icons/file-text';
 	import YoutubeIcon from '@lucide/svelte/icons/circle-play';
@@ -30,7 +31,7 @@
 		{@const thumb = proxied(a.thumbnailUrl)}
 		<Item.Root variant="outline" size="sm">
 			{#snippet child({ props })}
-				<a href={a.url} target="_blank" rel="noreferrer" {...props}>
+				<a href={withAuthUser(a.url)} target="_blank" rel="noreferrer" {...props}>
 					{#if thumb && !failed.has(thumb)}
 						<Item.Media variant="image" class="bg-muted">
 							<img

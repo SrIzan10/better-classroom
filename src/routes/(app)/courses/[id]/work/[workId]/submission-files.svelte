@@ -2,6 +2,7 @@
 	import { errorMessage, submissionFiles } from '#lib/api.ts';
 	import { isOpen, type WorkSummary } from '#lib/work.ts';
 	import { notify } from '#lib/toast.ts';
+	import { withAuthUser } from '#lib/link-authuser.svelte.ts';
 	import Attachments from '#lib/components/attachments.svelte';
 	import type { Attachment, SubmissionFile } from '#lib/shared/types.ts';
 	import LoaderIcon from '@lucide/svelte/icons/loader-circle';
@@ -76,7 +77,7 @@
 				<li class="group flex items-center gap-2 rounded-lg border px-3 py-2">
 					<PaperclipIcon class="size-3.5 shrink-0 text-muted-foreground" />
 					<a
-						href={f.url ?? `https://drive.google.com/file/d/${f.driveId}/view`}
+						href={withAuthUser(f.url ?? `https://drive.google.com/file/d/${f.driveId}/view`)}
 						target="_blank"
 						rel="noreferrer"
 						class="min-w-0 flex-1 truncate underline-offset-2 hover:underline"

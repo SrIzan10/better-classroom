@@ -3,6 +3,7 @@
 	import { setCoursePrefs } from '#lib/api.ts';
 	import { setCourseHidden } from '#lib/course-actions.ts';
 	import { notify } from '#lib/toast.ts';
+	import { withAuthUser } from '#lib/link-authuser.svelte.ts';
 	import type { CourseRef as Course } from '#lib/course.ts';
 	import type { Snippet } from 'svelte';
 	import PencilIcon from '@lucide/svelte/icons/pencil';
@@ -42,7 +43,8 @@
 		<ContextMenu.Item onSelect={hide}><EyeOffIcon />Hide course</ContextMenu.Item>
 		{#if course.alternateLink}
 			<ContextMenu.Separator />
-			<ContextMenu.Item onSelect={() => window.open(course.alternateLink, '_blank', 'noreferrer')}
+			<ContextMenu.Item
+				onSelect={() => window.open(withAuthUser(course.alternateLink), '_blank', 'noreferrer')}
 				><ExternalLinkIcon />Open in Classroom</ContextMenu.Item
 			>
 		{/if}

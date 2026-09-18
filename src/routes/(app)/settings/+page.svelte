@@ -7,6 +7,7 @@
 	import SourcesCard from './sources-card.svelte';
 	import SyncCard from './sync-card.svelte';
 	import RichSessionCard from './rich-session-card.svelte';
+	import LinkAuthUserCard from './link-authuser-card.svelte';
 	import ThemePicker from './theme-picker.svelte';
 	import CourseVisibility from './course-visibility.svelte';
 	import NotificationsCard from './notifications-card.svelte';
@@ -42,6 +43,7 @@
 		<SourcesCard providers={data.providers} />
 		<SyncCard connection={data.connection} />
 		<RichSessionCard initial={data.rich} />
+		<LinkAuthUserCard />
 	</Tabs.Content>
 
 	<Tabs.Content value="appearance" class="mt-6">

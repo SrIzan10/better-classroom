@@ -4,6 +4,7 @@
 	import { handInBlocker } from '#lib/shared/hand-in.ts';
 	import { notify } from '#lib/toast.ts';
 	import { celebrate } from '#lib/celebrate.ts';
+	import { withAuthUser } from '#lib/link-authuser.svelte.ts';
 	import { Button } from '#lib/components/ui/button/index.js';
 	import type { Submission } from '#lib/shared/types.ts';
 	import ExternalLinkIcon from '@lucide/svelte/icons/external-link';
@@ -38,7 +39,7 @@
 
 <div class="mt-4 flex flex-wrap gap-2">
 	{#if isOpen(work) && blocker}
-		<Button size="sm" href={work.alternateLink} target="_blank" rel="noreferrer">
+		<Button size="sm" href={withAuthUser(work.alternateLink)} target="_blank" rel="noreferrer">
 			Complete in Classroom <ExternalLinkIcon data-icon="inline-end" />
 		</Button>
 		<p class="basis-full text-sm text-muted-foreground">{blocker}</p>
@@ -62,7 +63,7 @@
 		<Button
 			variant="outline"
 			size="sm"
-			href={submission.alternateLink}
+			href={withAuthUser(submission.alternateLink)}
 			target="_blank"
 			rel="noreferrer"
 		>

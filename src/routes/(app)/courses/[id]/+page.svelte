@@ -16,6 +16,7 @@
 	import { courseLabel, displayName } from '#lib/course.ts';
 	import { pluralize } from '#lib/text.ts';
 	import CourseDot from '#lib/components/course-dot.svelte';
+	import { withAuthUser } from '#lib/link-authuser.svelte.ts';
 	import ExternalLinkIcon from '@lucide/svelte/icons/external-link';
 	import BookOpenIcon from '@lucide/svelte/icons/book-open';
 	import InboxIcon from '@lucide/svelte/icons/inbox';
@@ -116,7 +117,7 @@
 			<Button
 				variant="outline"
 				size="sm"
-				href={course.alternateLink}
+				href={withAuthUser(course.alternateLink)}
 				target="_blank"
 				rel="noreferrer"
 			>

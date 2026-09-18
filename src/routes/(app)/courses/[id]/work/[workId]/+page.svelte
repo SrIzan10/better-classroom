@@ -13,6 +13,7 @@
 	import { formatDateLong, formatDateTime, formatDue, formatRelative } from '#lib/format.ts';
 	import { displayName } from '#lib/course.ts';
 	import CourseDot from '#lib/components/course-dot.svelte';
+	import { withAuthUser } from '#lib/link-authuser.svelte.ts';
 	import ExternalLinkIcon from '@lucide/svelte/icons/external-link';
 	import FactsGrid from './facts-grid.svelte';
 	import SubmissionFiles from './submission-files.svelte';
@@ -72,7 +73,7 @@
 			</div>
 		</div>
 		{#if w.alternateLink}
-			<Button href={w.alternateLink} target="_blank" rel="noreferrer"
+			<Button href={withAuthUser(w.alternateLink)} target="_blank" rel="noreferrer"
 				>Open in Classroom <ExternalLinkIcon data-icon="inline-end" /></Button
 			>
 		{/if}
