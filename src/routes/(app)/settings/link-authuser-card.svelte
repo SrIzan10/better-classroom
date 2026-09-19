@@ -10,11 +10,9 @@
 		<div>
 			<h2 class="text-base font-semibold tracking-tight">Google account for links</h2>
 			<p class="mt-1 max-w-prose text-sm text-pretty text-muted-foreground">
-				If this browser is signed into more than one Google account, links to Classroom and Drive
-				can open in the wrong one. Enter the account's slot number (0 is the first account you
-				signed into) and it's added as
-				<code class="rounded bg-muted px-1 py-0.5 text-xs">authuser</code> to every link. Leave it empty
-				to turn this off. Saved for this browser only.
+				Signed into more than one Google account? Enter the number of the one Classroom and Drive
+				links should open in: 0 for the first account you signed into, 1 for the next, and so on.
+				Saved for this browser only.
 			</p>
 		</div>
 		<div class="flex shrink-0 items-center gap-2">
